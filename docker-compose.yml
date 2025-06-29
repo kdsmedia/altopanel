@@ -1,24 +1,18 @@
 version: '3.8'
 
 x-common:
-  db-environment: &db-environment
-    # Do not remove the "&db-password" from the end of the line below, it is important
-    # for Panel functionality.
+  database: &db-environment
     MYSQL_PASSWORD: &db-password "CHANGE_ME"
     MYSQL_ROOT_PASSWORD: "CHANGE_ME_TOO"
 
-  panel-environment: &panel-environment
-    # This URL should be the URL that your reverse proxy routes to the panel server
+  panel: &panel-environment
     APP_URL: "https://cloud.securityhub.biz.id"
-    # A list of valid timezones can be found here: http://php.net/manual/en/timezones.php
     APP_TIMEZONE: "UTC"
     APP_SERVICE_AUTHOR: "appsidhanie@gmail.com"
     TRUSTED_PROXIES: "*"
-    # Uncomment the line below and set to a non-empty value if you want to use Let's Encrypt
-    # to generate an SSL certificate for the Panel.
     # LE_EMAIL: ""
 
-  mail-environment: &mail-environment
+  mail: &mail-environment
     MAIL_FROM: "appsidhanie@gmail.com"
     MAIL_DRIVER: "smtp"
     MAIL_HOST: "mail"
