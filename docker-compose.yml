@@ -2,8 +2,8 @@ version: '3.8'
 
 x-common:
   database: &db-environment
-    MYSQL_PASSWORD: &db-password "CHANGE_ME"
-    MYSQL_ROOT_PASSWORD: "CHANGE_ME_TOO"
+    MYSQL_PASSWORD: &db-password "altomedia"
+    MYSQL_ROOT_PASSWORD: "altomedia"
 
   panel: &panel-environment
     APP_URL: "https://cloud.securityhub.biz.id"
@@ -30,8 +30,8 @@ services:
       - "/srv/pterodactyl/database:/var/lib/mysql"
     environment:
       <<: *db-environment
-      MYSQL_DATABASE: "panel"
-      MYSQL_USER: "pterodactyl"
+      MYSQL_DATABASE: "altomedia"
+      MYSQL_USER: "altomedia"
 
   cache:
     image: redis:alpine
